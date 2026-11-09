@@ -22,7 +22,7 @@ def wait(sec):
 ##dialauge function. easier for my lazy butt to type
 def says(speaker, text):
     print(speaker+ ": " + text)
-    wait(1.5)
+    wait(1.75)
 
 while place == "interrogation":
     says(npc1,"Why hello")
@@ -88,13 +88,13 @@ while place == "reception":
         print(player_name + " runs as fast as they can towards the open door much to the indifference of the annoyed man.")
         says(npc2, "*sigh* What do I care at this point.")
         print("Poor " + player_name + " didn't even know what hit them.")
-        wait(.5)
-        print("As you run through the open door a figure falls on top of you.")
         wait(1)
+        print("As you run through the open door a figure falls on top of you.")
+        wait(2)
         print("The end")
         wait(.3)
         print("Poor chap never stood a chance.")
-        wait(2)
+        wait(5)
         # print("Ending " end_count " of 3")
         place = "end"
     elif choice == 2 :
@@ -106,7 +106,9 @@ while place == "reception":
         says(npc2, "too hard.")
         wait(2)
         print(player_name+ " enters the hall." )
+        wait(2)
         print("There are four cells, two on the left and two on the right.")
+        wait(2)
         place = "hall"
     else:
         says(god, "Dawg it's 1 or 2 how do you mess that up?")
@@ -118,11 +120,15 @@ while place == "hall":
     if answer == 1:
         if key == True:
             print("There sits an old man. His single gold tooth gleams in the dull light.")
+            wait(1)
             print("He says not a word, just offers an open palm.")
+            wait(2)
             answer = input("Give him the key?(y/n): ")
             if answer == "y" or "Y" or "Yes" or "yes":
                 print("He silently opens the cell and runs out into the first room.")
+                wait(2)
                 print("You hear yelling and maybe a few airborn objects.")
+                wait(3)
                 distraction = "yes"
         else: 
             print("The closest cell on the right has a strange old man with a single crooked gold tooth. He just sits there and grins with a madness in his eye.")
@@ -181,7 +187,9 @@ while place == "hall":
                     
         else: 
             print("Fine then, be that way. Go wander the hall.")
+            wait(2)
             print("You'll be back >:|")
+            wait(1)
     elif answer == 3:
         print("Theres a big hole in the back of this cell. You can hear the faint sound of wind coming from it.")
         enter_cell = input("This cell is empty. Do you enter?(y/n): ").strip().lower()
