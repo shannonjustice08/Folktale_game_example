@@ -5,6 +5,9 @@ playing = True
 def wait(sec):
     time.sleep(sec)
 
+
+
+
 ##dialauge function. easier for my lazy butt to type
 def says(speaker, text):
     print(speaker+ ": " + text)
@@ -29,12 +32,13 @@ while True:
     # progression variables
     key = False
     distraction = "no"
-
-
-
-
-
-
+    enter_cell= 1
+    choice = 1
+    answer = 1
+    response = 1
+    enter_crack = "y" 
+    play = "y"
+    take_key = "y"
 
 
 
@@ -71,7 +75,10 @@ while True:
                 wait(1)
                 while place == "interrogation":
                     says(npc1, "Now tell me, do you know why you're here?")
-                    response = str(input("How do you respond?(y/n): " )).strip().lower()
+                    try:
+                        response = str(input("How do you respond?(y/n): " )).strip().lower()
+                    except ValueError:
+                        print("Invalid response. Try Again.")                    
                     if response == "y" or response == "yes":
                         says(npc1, "Well then. That makes this easier.") 
                         says(npc1, "I guess I'll send you straight to processing.")   
@@ -110,7 +117,10 @@ while True:
             wait(2)
             says(npc2, "Damn her")
             says(npc2, "Oh whatever, come over here.")
-            choice = int(input("Make a break (1) or Approach the unhappy man?(2) (1 or 2): "))
+            try:
+                choice = int(input("Make a break (1) or Approach the unhappy man?(2) (1 or 2): "))
+            except ValueError:
+                print("Invalid response. Try Again.")     
             if choice == 1: 
                 print("Ahh hell nah. " + player_name + " thinks.")
                 wait(1)
@@ -148,15 +158,18 @@ while True:
         while place == "hall":
             
             wait(.5)
-            answer = int(input("Which cell will you check out?(1, 2, 3, or 4): "))
+            try:
+                answer = int(input("Which cell will you check out?(1, 2, 3, or 4): "))
+            except ValueError:
+                print("Invalid response. Try Again.")     
             if answer == 1:
                 if key == True:
                     print("There sits an old man. His single gold tooth gleams in the dull light.")
                     wait(1)
                     print("He says not a word, just offers an open palm.")
                     wait(2)
-                    answer = input("Give him the key?(y/n): ")
-                    if answer == "y" or "Y" or "Yes" or "yes":
+                    answer = input("Give him the key?(y/n): ").strip().lower()
+                    if answer == "y" or answer == "yes":
                         print("He silently opens the cell and runs out into the first room.")
                         wait(2)
                         print("You hear yelling and maybe a few airborn objects.")
@@ -166,8 +179,8 @@ while True:
                     print("The closest cell on the right has a strange old man with a single crooked gold tooth. He just sits there and grins with a madness in his eye.")
                     print("Best not engage with him.")
             elif answer == 2:
-                enter_cell = input("This cell is empty. Do you enter?(y/n): ")
-                if enter_cell == "y" or "Y" or "Yes" or "yes":
+                enter_cell = input("This cell is empty. Do you enter?(y/n): ").strip().lower()
+                if enter_cell == "y" or enter_cell == "yes":
                     if key == False:
                         print("As you enter the cell, the door closes behind you.")
                         wait(2)
@@ -181,8 +194,8 @@ while True:
                     if key == True:
                         print("As you enter the cell, the door closes behind you.")
                         wait(1)
-                        choice = input("Do you wait?(y/n): ")
-                        if choice == "y" or "Y" or "Yes" or "yes":
+                        choice = input("Do you wait?(y/n): ").strip().lower()
+                        if choice == "y" or choice == "yes":
                             wait(1)
                             print("You wait for hours. Until dusk has far set.")
                             wait(1)
@@ -233,7 +246,10 @@ while True:
                     wait(.8)
                     print("It looks tight, but you think you could fit.")
                     wait(.5)
-                    enter_crack = int(input("Enter the crack (1) or return to the hall (2) (1 or 2)?: "))
+                    try:
+                        enter_crack = int(input("Enter the crack (1) or return to the hall (2) (1 or 2)?: "))
+                    except ValueError:
+                        print("Invalid response. Try Again.")     
                     if enter_crack == 1:
                         if distraction == "yes":
                             print("You run")
